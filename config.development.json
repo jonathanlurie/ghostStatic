@@ -18,10 +18,10 @@
   "mail": {
     "transport": "SMTP",
     "options": {
-      "service": "Mailgun",
+      "service": "",
       "auth": {
-        "user": "postmaster@mg.jonathanlurie.fr",
-        "pass": "281fc93929c6a62a27a27bc1eb5ce4ed"
+        "user": "",
+        "pass": ""
       }
     }
   }
