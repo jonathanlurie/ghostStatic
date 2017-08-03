@@ -1,18 +1,22 @@
 {
-  "name": "ghosttestnpm",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ghostStatic",
+  "version": "0.1.0",
+  "description": "Generate a static website from a Ghost local install",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "build": "rm -rf static/* ;buster generate; node fixstaticurl.js; buster deploy;"
+    "init": "rm ./content/data/*.db; unlink static; ./init.sh",
+    "start": "./init.sh; node index",
+    "build": "./build.sh",
+    "deploy": "cd static; git add *; git commit -am 'up static site'; git push --force"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jonathan Lurie",
+  "license": "MIT",
   "dependencies": {
     "ghost": "^1.0.0",
     "glob": "^7.1.2",
     "replace": "^0.3.0"
+  },
+  "devDependencies": {
+    "knex-migrator": "^2.1.4"
   }
 }

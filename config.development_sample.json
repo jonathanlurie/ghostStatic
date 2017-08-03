@@ -18,7 +18,7 @@
   "mail": {
     "transport": "SMTP",
     "options": {
-      "service": "Mailgun",
+      "service": "",
       "auth": {
         "user": "",
         "pass": ""

@@ -21,12 +21,19 @@ function urlReplace(){
 // and no html extension. This script put each tag inside a folder that has the tag name
 // and move the tag file inside, renamed as index.html
 function fixTagPages(){
-  fs.readdirSync("static/tag/").forEach(function(file){
-    console.log(file);
+  var tagFolder = "static/tag/";
+  var fileTempSufix = "_TMP";
+
+  fs.readdirSync( tagFolder ).forEach(function(file){
+    if( file[0] == ".")
+      return;
+
+    fs.renameSync( tagFolder + file , tagFolder + file + fileTempSufix )
+    fs.mkdirSync( tagFolder + file );
+    fs.renameSync( tagFolder + file + fileTempSufix, tagFolder + file + "/index.html" );
   })
 }
 
 
-//urlReplace();
-
+urlReplace();
 fixTagPages();
